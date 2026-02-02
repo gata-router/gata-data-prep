@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: uv
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "17:26"
+      timezone: "Australia/Melbourne"
+    open-pull-requests-limit: 5
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "10:37"
+      timezone: "Australia/Melbourne"
+    open-pull-requests-limit: 5
