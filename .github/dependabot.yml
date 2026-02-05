@@ -12,6 +12,9 @@ updates:
         patterns:
           - "*boto3*"
           - "botocore*"
+      pandas:
+        patterns:
+          - "*pandas*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
