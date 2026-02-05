@@ -11,7 +11,7 @@ dependencies = [
   "boto3==1.42.39",
   "pandas==3.0.0",
   "scikit-learn==1.8.0",
-  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.39",
+  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.42",
   "zenpy==2.0.56"
 ]
 
