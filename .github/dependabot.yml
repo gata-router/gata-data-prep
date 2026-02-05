@@ -6,7 +6,12 @@ updates:
       interval: daily
       time: "17:26"
       timezone: "Australia/Melbourne"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
+    groups:
+      boto3:
+        patterns:
+          - "*boto3*"
+          - "botocore*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
