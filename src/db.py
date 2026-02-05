@@ -87,7 +87,7 @@ class DbClient:
             secretArn=self._secret_arn,
             database=self._db_name,
             sql=query,
-            parameters=params,  # type: ignore[arg-type]
+            parameters=params,
             resultSetOptions={
                 "decimalReturnType": "DOUBLE_OR_LONG",
                 "longReturnType": "LONG",

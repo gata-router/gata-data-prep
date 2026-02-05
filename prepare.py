@@ -60,7 +60,7 @@ def main(batch_id: str) -> None:
     db_client = db.DbClient(DB_ARN, DB_SECRET_ARN, secret["dbname"])
 
     general_df = pd.DataFrame(tickets.get_tickets(db_client, start, end))
-    if general_df.empty:  # type: ignore[truthy-function]
+    if general_df.empty:
         LOGGER.warning("No ticket data found")
         return
 
@@ -138,7 +138,7 @@ def main(batch_id: str) -> None:
         ],
         ignore_index=True,
     )
-    if low_vol_df.empty:  # type: ignore[truthy-function]
+    if low_vol_df.empty:
         LOGGER.warning("No low volume ticket data found")
         return
 

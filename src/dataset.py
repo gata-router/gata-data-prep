@@ -6,7 +6,7 @@ __license__ = "MIT"
 
 
 import pandas as pd
-import sklearn.model_selection  # type:ignore[import-untyped]
+import sklearn.model_selection
 
 
 def filter(df: pd.DataFrame, labels: list[str]) -> pd.DataFrame:
