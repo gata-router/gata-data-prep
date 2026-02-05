@@ -28,7 +28,7 @@ dev = [
   "pytest==9.0.2",
   "responses==0.25.8",
   "ruff==0.15.0",
-  "ty==0.0.14",
+  "ty==0.0.15",
 ]
 
 [build-system]
