@@ -30,8 +30,7 @@ def test_count_labels_single_label() -> None:
     data = {"label": ["A", "A", "A"]}
     df = pd.DataFrame(data)
     result = utils.count_labels(df)
-    expected = "Label  Count\n    A      3"
-    assert result == expected
+    assert result["Count"][0] == 3
 
 
 def test_count_labels_multiple_labels() -> None:
@@ -39,8 +38,8 @@ def test_count_labels_multiple_labels() -> None:
     data = {"label": ["A", "B", "A", "C", "B", "A"]}
     df = pd.DataFrame(data)
     result = utils.count_labels(df)
-    expected = "Label  Count\n    A      3\n    B      2\n    C      1"
-    assert result == expected
+    expected = "  Label  Count\n0     A      3\n1     B      2\n2     C      1"
+    assert str(result) == expected
 
 
 def test_count_labels_no_labels() -> None:
@@ -48,8 +47,7 @@ def test_count_labels_no_labels() -> None:
     data: dict[str, list[str]] = {"label": []}
     df = pd.DataFrame(data)
     result = utils.count_labels(df)
-    expected = "EMPTY DATAFRAME"
-    assert result == expected
+    assert result.empty
 
 
 def test_get_end_datetime() -> None:
