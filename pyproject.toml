@@ -8,10 +8,10 @@ license = {text = "MIT"}
 
 requires-python = ">=3.14,<3.15"
 dependencies = [
-  "boto3==1.42.46",
+  "boto3==1.42.49",
   "pandas==3.0.0",
   "scikit-learn==1.8.0",
-  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.46",
+  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.49",
   "zenpy==2.0.56"
 ]
 
