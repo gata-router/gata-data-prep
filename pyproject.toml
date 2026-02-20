@@ -12,7 +12,7 @@ dependencies = [
   "pandas==3.0.1",
   "scikit-learn==1.8.0",
   "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.49",
-  "zenpy==2.0.56"
+  "zenpy==2.0.57"
 ]
 
 readme = "README.md"
