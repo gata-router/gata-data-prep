@@ -15,6 +15,11 @@ updates:
       pandas:
         patterns:
           - "*pandas*"
+      qa:
+        patterns:
+          - "ruff*"
+          - "ty*"
+
 
   - package-ecosystem: "github-actions"
     directory: "/"
