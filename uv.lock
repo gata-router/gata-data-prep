@@ -252,7 +252,7 @@ requires-dist = [
     { name = "boto3", specifier = "==1.42.72" },
     { name = "pandas", specifier = "==3.0.1" },
     { name = "scikit-learn", specifier = "==1.8.0" },
-    { name = "types-boto3", extras = ["rds-data", "s3", "secretsmanager", "ssm"], specifier = "==1.42.72" },
+    { name = "types-boto3", extras = ["rds-data", "s3", "secretsmanager", "ssm"], specifier = "==1.42.73" },
     { name = "zenpy", specifier = "==2.0.57" },
 ]
 
@@ -723,15 +723,15 @@ wheels = [
 
 [[package]]
 name = "types-boto3"
-version = "1.42.72"
+version = "1.42.73"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore-stubs" },
     { name = "types-s3transfer" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/57/14/f72660752fa552c4976de68f3253f34719a202b6bc6dc56382268dd80905/types_boto3-1.42.72.tar.gz", hash = "sha256:d68eeaffa88d513f39d0009f0d5ed2b8c9a68910f8682be46b8b1dbe9011c2f9", size = 101687, upload-time = "2026-03-19T21:30:19.413Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/20/e5d8d1f1eaf2a71f6b3980f0c26bb2038ede3bf9b9d428d596034639b28d/types_boto3-1.42.73.tar.gz", hash = "sha256:bec5b07d4f433bf70facb3bdc064df828714fa2ba5a6b148711147e4c32bdb1b", size = 101711, upload-time = "2026-03-20T19:59:42.964Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3c/b5/366eefa6b9250bf7dc5a190d92b7e97d69901e25a1239a0f8e7eac8342f4/types_boto3-1.42.72-py3-none-any.whl", hash = "sha256:84005867bda3e16603e49993542a3e03248b57f0c9bcf3f1f4cf7962f8d9aef7", size = 69909, upload-time = "2026-03-19T21:30:10.749Z" },
+    { url = "https://files.pythonhosted.org/packages/ae/18/ec8d3ab68e75e35d8f5f5da4ee096a014e27a14d19efc3e9e4c1c4f460ee/types_boto3-1.42.73-py3-none-any.whl", hash = "sha256:1b6719ebf4413eba05a15451d3fa88605444ab7816530d488ef717a456bb4498", size = 69907, upload-time = "2026-03-20T19:59:35.499Z" },
 ]
 
 [package.optional-dependencies]
