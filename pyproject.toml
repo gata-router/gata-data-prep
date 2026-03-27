@@ -8,10 +8,10 @@ license = {text = "MIT"}
 
 requires-python = ">=3.14,<3.15"
 dependencies = [
-  "boto3==1.42.72",
-  "pandas==3.0.1",
-  "scikit-learn==1.8.0",
-  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.42.72",
+  "boto3==1.43.24",
+  "pandas==3.0.3",
+  "scikit-learn==1.9.0",
+  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.24",
   "zenpy==2.0.57"
 ]
 
@@ -21,19 +21,19 @@ dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-  "coverage==7.13.5",
-  "moto==5.1.22",
-  "pandas-stubs==3.0.0.260204",
+  "coverage==7.14.1",
+  "moto==5.2.1",
+  "pandas-stubs==3.0.3.260530",
   "pytest-mock==3.15.1",
-  "pytest==9.0.2",
-  "responses==0.26.0",
-  "ruff==0.15.7",
-  "ty==0.0.24",
+  "pytest==9.0.3",
+  "responses==0.26.1",
+  "ruff==0.15.16",
+  "ty==0.0.44",
 ]
 
 [build-system]
 requires = [
-    "hatchling==1.29.0",
+    "hatchling==1.30.1",
     "hatch-vcs==0.5.0",
 ]
 build-backend = "hatchling.build"
