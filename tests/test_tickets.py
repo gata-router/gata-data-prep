@@ -43,7 +43,7 @@ def test_get_tickets() -> None:
     start = datetime.datetime(2025, 1, 1, tzinfo=datetime.UTC)
     end = datetime.datetime(2025, 1, 2, tzinfo=datetime.UTC)
 
-    result = list(tickets.get_tickets(db_client, start, end))  # type: ignore[arg-type]
+    result = list(tickets.get_tickets(db_client, start, end))  # ty: ignore[invalid-argument-type]
     assert isinstance(result, list)
     assert len(result) == 2
     assert result[0]["id"] == "1"
@@ -78,7 +78,7 @@ def test_get_tickets_with_groups() -> None:
     start = datetime.datetime(2024, 1, 1, tzinfo=datetime.UTC)
     end = datetime.datetime(2024, 1, 2, tzinfo=datetime.UTC)
 
-    result = list(tickets.get_tickets(db_client, start, end, [123456]))  # type: ignore[arg-type]
+    result = list(tickets.get_tickets(db_client, start, end, [123456]))  # ty: ignore[invalid-argument-type]
     assert isinstance(result, list)
     assert len(result) == 1
     assert result[0]["id"] == "3"
