@@ -29,10 +29,15 @@ jobs:
 
     runs-on: ubuntu-24.04-arm
 
+    env:
+      # The AWS steps only run when the repository has the AWS secrets
+      # configured. Forks get GHCR publishing with zero configuration.
+      AWS_ENABLED: ${{ secrets.AWS_ROLE_ARN != '' }}
+
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
 
@@ -87,7 +92,7 @@ jobs:
         with:
           images: |
             ${{ env.GHCR_IMAGE }}
-            ${{ secrets.AWS_ECR_IMAGE}}
+            ${{ secrets.AWS_ECR_IMAGE }}
           flavor: |
             latest=false
             prefix=
@@ -107,6 +112,7 @@ jobs:
 
       - name: Log into AWS
         id: aws-login
+        if: env.AWS_ENABLED == 'true'
         uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v5.1.1
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
@@ -115,15 +121,26 @@ jobs:
 
       - name: Log in to AWS ECR
         id: ecr-login
+        if: env.AWS_ENABLED == 'true'
         uses: aws-actions/amazon-ecr-login@fa648b43de3d4d023bcb3f89ed6940096949c419 # v2.1.5
 
       - name: Build and push Docker image
         id: push-ghcr
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
         with:
+          # The data prep task runs on Graviton.
+          platforms: linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Attest build provenance
+        id: attest
+        uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+        with:
+          subject-name: ${{ env.GHCR_IMAGE }}
+          subject-digest: ${{ steps.push-ghcr.outputs.digest }}
+          push-to-registry: true
 
       - name: Docker Cleanup
         id: docker-cleanup
@@ -133,6 +150,7 @@ jobs:
 
       - name: Update SSM Parameter
         id: ssm
+        if: env.AWS_ENABLED == 'true'
         run: |
           aws ssm put-parameter --name "${VARS_AWS_SSM_PARAMETER}" --value :$(echo "${STEPS_META_OUTPUTS_TAGS}" | cut -d: -f2 | sort -u | tail -n1) --type String --overwrite
         env:
