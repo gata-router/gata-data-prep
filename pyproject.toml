@@ -11,7 +11,7 @@ dependencies = [
   "boto3==1.43.40",
   "pandas==3.0.3",
   "scikit-learn==1.9.0",
-  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.24",
+  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.40",
   "zenpy==2.0.57",
 ]
 
@@ -27,8 +27,8 @@ dev = [
   "pytest-mock==3.15.1",
   "pytest==9.1.1",
   "responses==0.26.2",
-  "ruff==0.15.16",
-  "ty==0.0.44",
+  "ruff==0.15.20",
+  "ty==0.0.56",
 ]
 
 [build-system]
