@@ -31,7 +31,7 @@ RUN set -ex; \
 
 FROM public.ecr.aws/chainguard/python:latest
 
-LABEL org.opencontainers.image.source=https://github.com/gata-router/data-prep
+LABEL org.opencontainers.image.source=https://github.com/gata-router/gata-data-prep
 LABEL org.opencontainers.image.description="Gata router ticket data preparation task."
 LABEL org.opencontainers.image.licenses=MIT
 
