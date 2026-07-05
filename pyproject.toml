@@ -6,13 +6,12 @@ authors = [
 description = "Prepare ML training datasets from Zendesk ticket data for Gata Router"
 license = {text = "MIT"}
 
-requires-python = ">=3.14,<3.15"
+requires-python = "~=3.14.0"
 dependencies = [
   "boto3==1.43.40",
   "pandas==3.0.3",
   "scikit-learn==1.9.0",
   "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.40",
-  "zenpy==2.0.57",
 ]
 
 readme = "README.md"
@@ -20,6 +19,10 @@ readme = "README.md"
 dynamic = ["version"]
 
 [dependency-groups]
+# Only used by the helper scripts in scripts/, not the container image.
+scripts = [
+  "zenpy==2.0.57",
+]
 dev = [
   "coverage==7.15.0",
   "moto==5.2.2",

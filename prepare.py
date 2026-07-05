@@ -145,8 +145,8 @@ def main(batch_id: str) -> None:
     LOGGER.info("Low volume records: %d", len(low_vol_df))
     LOGGER.info("Low volume label distribution:\n%s", utils.count_labels(low_vol_df))
 
-    # We need to remove any labels with fewer than 10 records to allow proper splitting
-    low_vol_df = low_vol_df[low_vol_df["label"] >= 10]
+    # Labels with fewer than LOW_VOLUME_MIN_COUNT records break stratified splitting
+    low_vol_df = dataset.drop_low_count_labels(low_vol_df, LOW_VOLUME_MIN_COUNT)
     LOGGER.info("Low volume label distribution:\n%s", utils.count_labels(low_vol_df))
 
     low_vol_train_df, low_vol_test_df = dataset.split(low_vol_df, TEST_SPLIT)

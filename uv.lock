@@ -245,7 +245,6 @@ dependencies = [
     { name = "pandas" },
     { name = "scikit-learn" },
     { name = "types-boto3", extra = ["rds-data", "s3", "secretsmanager", "ssm"] },
-    { name = "zenpy" },
 ]
 
 [package.dev-dependencies]
@@ -259,6 +258,9 @@ dev = [
     { name = "ruff" },
     { name = "ty" },
 ]
+scripts = [
+    { name = "zenpy" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -266,7 +268,6 @@ requires-dist = [
     { name = "pandas", specifier = "==3.0.3" },
     { name = "scikit-learn", specifier = "==1.9.0" },
     { name = "types-boto3", extras = ["rds-data", "s3", "secretsmanager", "ssm"], specifier = "==1.43.40" },
-    { name = "zenpy", specifier = "==2.0.57" },
 ]
 
 [package.metadata.requires-dev]
@@ -280,6 +281,7 @@ dev = [
     { name = "ruff", specifier = "==0.15.20" },
     { name = "ty", specifier = "==0.0.56" },
 ]
+scripts = [{ name = "zenpy", specifier = "==2.0.57" }]
 
 [[package]]
 name = "idna"

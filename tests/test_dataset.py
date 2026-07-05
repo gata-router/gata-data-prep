@@ -59,6 +59,22 @@ def dataframe() -> pd.DataFrame:
     )
 
 
+def test_drop_low_count_labels() -> None:
+    """Filter by record count, not label value."""
+    df = pd.DataFrame(
+        {
+            "text": ["big"] * 12 + ["small-id"] * 11 + ["rare"] * 3,
+            "label": [16066574298652] * 12 + [5] * 11 + [16066628349340] * 3,
+        }
+    )
+
+    result = dataset.drop_low_count_labels(df, 10)
+
+    assert sorted(result["label"].unique()) == [5, 16066574298652]
+    assert len(result) == 23
+    assert result["label"].dtype == df["label"].dtype
+
+
 def test_filter(dataframe: pd.DataFrame) -> None:
     """Test the filter function."""
     expected = pd.DataFrame({"text": ["two", "two"], "label": ["2", "2"]}, index=[4, 5])

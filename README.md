@@ -117,6 +117,22 @@ Example: `2026010203` represents January 2, 2026 at 03:00 (3:00 AM)
      gata-data-prep 2026010203
    ```
 
+## Releases
+
+Pushing a tag in `YYYYMMDDHH` format publishes the image to GHCR. A weekly scheduled build picks up base image updates. Provenance attestations are pushed alongside every image.
+
+```sh
+git tag 2026010203
+git push origin 2026010203
+```
+
+The workflow can also push to your ECR repository and update the SSM parameter Gata reads the image tag from. That half only runs when the AWS configuration exists in the repository settings:
+
+- Secrets: `AWS_ROLE_ARN` (from the `github_actions_role_arns` output of the [Gata Terraform module](https://github.com/gata-router/terraform-aws-gata)) and `AWS_ECR_IMAGE` (the ECR image URL)
+- Variables: `AWS_REGION` and `AWS_SSM_PARAMETER` (the image version parameter path)
+
+Forks without these settings still publish to their own GHCR namespace.
+
 ## How It Works
 
 ### Data Processing Pipeline
