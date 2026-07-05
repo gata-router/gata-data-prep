@@ -9,6 +9,26 @@ import pandas as pd
 import sklearn.model_selection
 
 
+def drop_low_count_labels(df: pd.DataFrame, min_count: int) -> pd.DataFrame:
+    """
+    Remove rows whose label has fewer than min_count records.
+
+    Stratified splitting needs enough records per label. Labels with too few
+    records are dropped so the split can't fail.
+
+    Args:
+    ----
+        df: The DataFrame to filter.
+        min_count: The minimum number of records a label needs to be kept.
+
+    Returns:
+    -------
+        The filtered DataFrame.
+
+    """
+    return df[df.groupby("label")["label"].transform("size") >= min_count]
+
+
 def filter(df: pd.DataFrame, labels: list[str]) -> pd.DataFrame:
     """
     Filter the DataFrame to the list of specified labels.
@@ -61,13 +81,11 @@ def split(df: pd.DataFrame, test_size: float) -> tuple[pd.DataFrame, pd.DataFram
         A tuple containing the training and test DataFrames.
 
     """
-    train_df, test_df = (
-        sklearn.model_selection.train_test_split(  # type [pd.DataFrame, pd.DataFrame]
-            df,
-            test_size=test_size,
-            stratify=df["label"],
-            random_state=42,
-        )
+    train_df, test_df = sklearn.model_selection.train_test_split(
+        df,
+        test_size=test_size,
+        stratify=df["label"],
+        random_state=42,
     )
 
     return train_df, test_df
