@@ -24,7 +24,7 @@ scripts = [
   "zenpy==2.0.57",
 ]
 dev = [
-  "coverage==7.15.0",
+  "coverage==7.15.2",
   "moto==5.2.2",
   "pandas-stubs==3.0.3.260530",
   "pytest-mock==3.15.1",
