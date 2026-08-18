@@ -11,7 +11,7 @@ dependencies = [
   "boto3==1.43.40",
   "pandas==3.0.5",
   "scikit-learn==1.9.0",
-  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.40",
+  "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.72",
 ]
 
 readme = "README.md"
@@ -30,8 +30,8 @@ dev = [
   "pytest-mock==3.15.1",
   "pytest==9.1.1",
   "responses==0.26.2",
-  "ruff==0.15.20",
-  "ty==0.0.56",
+  "ruff==0.16.3",
+  "ty==0.0.72",
 ]
 
 [build-system]
