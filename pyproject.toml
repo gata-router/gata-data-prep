@@ -10,7 +10,7 @@ requires-python = "~=3.14.0"
 dependencies = [
   "boto3==1.43.40",
   "pandas==3.0.5",
-  "scikit-learn==1.9.0",
+  "scikit-learn==1.9.1",
   "types-boto3[rds-data,s3,secretsmanager,ssm]==1.43.40",
 ]
 
